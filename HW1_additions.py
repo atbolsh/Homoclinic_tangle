@@ -18,6 +18,11 @@ def length(xs, ys):
 def prune(xs, ys, m=10):
     '''
     Only keep points within max of the origin.
+
+    This is trash, no good, very bad code.
+    I should keep the segments separate, and definitely not interpolate "missing" deleted parts.
+
+    But as a quick fix, it worked for the region I was focused on, and let me get slightly better plots.
     '''
     indeces = range(len(xs))
     newXs = np.asarray([xs[i] for i in indeces if xs[i]< m and ys[i] < m])

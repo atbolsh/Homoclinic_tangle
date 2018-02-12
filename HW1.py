@@ -145,7 +145,7 @@ def gen_stable_unstable_values(k,n,res=50,target=0.01):
     
     return xu, yu, xs, ys
 
-def kplot(k,n,res=50,target=0.01,sym='.'):
+def kplot(k,n,res=50,target=0.1,sym='.'):
     '''Takes value for k and generates a plot of the stable and unstable
     manifolds for the mapping (3.7.1) and inverse mapping (3.7.4)
     
