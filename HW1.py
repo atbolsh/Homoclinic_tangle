@@ -40,7 +40,7 @@ def mapping(x,y,l,target=0.01,n=15,k=1.5):
         xn1 = xn + yn1
 
         #New: rescaling
-#        xn, yn = prune(xn, yn)
+        xn1, yn1 = prune(xn1, yn1)
         xn1 = np.hstack((xns[-1:], xn1))
         yn1 = np.hstack((yns[-1:], yn1))
         xn1, yn1 = rescale(xn1, yn1, target)
@@ -89,7 +89,7 @@ def invmapping(x,y,l,target=0.01,n=15,k=1.5):
         yn = yn1 - k*xn*(xn-1.)
         
         #New: rescaling
-#        xn, yn = prune(xn, yn)
+        xn, yn = prune(xn, yn)
         xn = np.hstack((xns[-1:], xn))
         yn = np.hstack((yns[-1:], yn))
         xn, yn = rescale(xn, yn, target)

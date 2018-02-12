@@ -14,29 +14,16 @@ def length(xs, ys):
     ydeltas = np.array([ys[i] - ys[i - 1] for i in range(1, len(xs))])
     return sum((xdeltas*xdeltas + ydeltas*ydeltas)**0.5)
 
-"""
-def prune(xs, ys, max=10):
+
+def prune(xs, ys, m=10):
     '''
     Only keep points within max of the origin.
     '''
-    foundLower = False
-    m = 0
-    M = len(xs)
-    for i in range(len(xs)):
-        if (not foundLower):
-            if xs[i]*xs[i] + ys[i]*ys[i] < max*max:
-                foundLower = True
-                m = i
-                continue
-        if foundLower:
-            if xs[i]*xs[i] + ys[i]*ys[i] > max*max:
-                M = i
-                break
-    print m
-    print M
-    print '\n'
-    return xs[m:M], ys[m:M]
-"""
+    indeces = range(len(xs))
+    newXs = np.asarray([xs[i] for i in indeces if xs[i]< m and ys[i] < m])
+    newYs = np.asarray([ys[i] for i in indeces if ys[i]< m and xs[i] < m])
+    return newXs, newYs
+
 
 def rescale(xs, ys, target=0.01):
     M = len(xs)
